@@ -33,7 +33,7 @@ def load_model_from_s3(bucket_name, model_key):
         return None
 
 # Replace with your S3 bucket and file key
-bucket_name = 'your-bucket-name'
+bucket_name = 'severitybucket'
 model_key = 'severity_model.pkl'
 
 # Load model
