@@ -4,7 +4,9 @@ import numpy as np
 import boto3
 import os
 import sklearn
+
 print(sklearn.__version__)
+
 # Initialize Flask app
 app = Flask(__name__)
 
@@ -39,6 +41,11 @@ exercise_mapping = {"Never": 0, "Rarely": 1, "Sometimes": 2, "Daily": 3}
 stress_mapping = {"Low": 0, "Medium": 1, "High": 2}
 symptom_worsening_mapping = {"No Change": 0, "Slightly Worse": 1, "Much Worse": 2}
 symptom_trend_mapping = {"Improving": 0, "Stable": 1, "Worsening": 2}
+
+# Home route
+@app.route("/")
+def home():
+    return jsonify({"message": "Severity Prediction API is running!"})
 
 # API endpoint to predict severity
 @app.route("/predict_severity", methods=["POST"])
