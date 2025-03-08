@@ -1,6 +1,6 @@
 flask
 gunicorn
-scikit-learn  # Required for RandomForestClassifier
-numpy         # Required for numerical operations
-pandas        # Required for handling data
+scikit-learn==1.6.1
+numpy        
+pandas       
 boto3
