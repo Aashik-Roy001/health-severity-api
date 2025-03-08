@@ -4,22 +4,13 @@ import numpy as np
 import pandas as pd
 import boto3
 import os
-
+import sklearn
+print(sklearn.__version__)
 # Initialize Flask app
 app = Flask(__name__)
 
-# Get AWS credentials from environment variables (set these in Render)
-aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
-aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
-aws_region = os.getenv('AWS_REGION')
-
 # Create an S3 client
-s3_client = boto3.client(
-    's3',
-    aws_access_key_id=aws_access_key_id,
-    aws_secret_access_key=aws_secret_access_key,
-    region_name=aws_region
-)
+s3_client = boto3.client('s3')
 
 # Load the trained severity prediction model from S3
 def load_model_from_s3(bucket_name, model_key):
